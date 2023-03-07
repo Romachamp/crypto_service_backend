@@ -1,5 +1,4 @@
 const express = require('express');
-const cors=require("cors");
 
 const app = express();
 
@@ -8,7 +7,6 @@ const mainRoute = require('./routes/main.route');
 app.use('/api', mainRoute);
 
 const PORT = 3000;
-
 
 app.listen(PORT);
 
