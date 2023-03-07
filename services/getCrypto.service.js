@@ -28,14 +28,14 @@ class GetCryptoService {
 
 
         const MILLIS_IN_MINUTE = 5000;
-        if (this.cryptoIsCached === true){
+        if (this.cryptoIsCached === true) {
             const response = await dbService.getLastData(this.COLLECTION);
             result = response.mail;
         } else {
             try {
                 const requestCoinPair = binanceList.get(fromCurrency) + binanceList.get(toCurrency);
-                console.log('From ' + fromCurrency)
-                console.log('TO ' + toCurrency)
+                console.log('From ' + fromCurrency);
+                console.log('TO ' + toCurrency);
                 console.log(requestCoinPair);
 
                 const req = await axios.get(`https://api.binance.com/api/v3/ticker/price?symbol=${requestCoinPair}`);

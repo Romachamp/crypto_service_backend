@@ -1,4 +1,5 @@
 const express = require('express');
+const cors=require("cors");
 
 const app = express();
 
@@ -9,7 +10,6 @@ app.use('/api', mainRoute);
 const PORT = 3000;
 
 
-
 app.listen(PORT);
 
 // !!
@@ -17,7 +17,7 @@ app.listen(PORT);
 // Запит адміна до сервера на відсилання emails має бути з ключем.
 // Адмін має вказувати курс яких валют надсилати.
 // Зробити кешування курсу у кожного провайдера курсу криптовалюти на 5 хв.
-// TODO: закинути код на github
+// закинути код на github
 // TODO: Захостити веб сторінку на git Pages
 // Закинути проект на хостинг.
 // !!

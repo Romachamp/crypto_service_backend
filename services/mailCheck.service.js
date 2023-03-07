@@ -5,6 +5,11 @@ class MailCheckService {
         return mail_check.test(mail);
     }
 
+    checkPassword(password) {
+        const password_check = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{8,20}$/;
+        return password_check.test(password);
+    }
+
 }
 
 module.exports = new MailCheckService();

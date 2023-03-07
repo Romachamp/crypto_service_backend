@@ -21,6 +21,16 @@ class DbService {
         return result.length >= 1;
     }
 
+    async isUserExists(data) {
+        const connection = await mongoDB.connect(url);
+        const db = connection.db('CryptoProject');
+        const findData = {
+            mail: data
+        }
+        const result = await db.collection('Users').find(findData).toArray();
+        return result.length >= 1;
+    }
+
     async getAllData(collection) {
         const connection = await mongoDB.connect(url);
         const db = connection.db('CryptoProject');
