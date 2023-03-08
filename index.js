@@ -4,11 +4,13 @@ const app = express();
 
 const mainRoute = require('./routes/main.route');
 
-app.use('/api', mainRoute);
+// app.use('/api', mainRoute);
+//
+// const PORT = 3000;
+//
+// app.listen(PORT);
 
-const PORT = 3000;
 
-app.listen(PORT);
 
 // const cors=require("cors");
 // const corsOptions ={
@@ -19,13 +21,15 @@ app.listen(PORT);
 //
 // app.use(cors(corsOptions)) // Use this after the variable declaration
 //
-// const PORT = process.env.PORT || 3030;
-//
-// app.use('/api', mainRoute);
-//
-// app.listen(PORT, function (e) {
-//     console.log('server started');
-// });
+
+
+const PORT = process.env.PORT || 3030;
+
+app.use('/api', mainRoute);
+
+app.listen(PORT, function (e) {
+    console.log('server started');
+});
 
 // !!
 // Зробити запити на 3 різних валюти.
