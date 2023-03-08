@@ -4,28 +4,28 @@ const app = express();
 
 const mainRoute = require('./routes/main.route');
 
-// app.use('/api', mainRoute);
-//
-// const PORT = 3000;
-//
-// app.listen(PORT);
-
-const cors=require("cors");
-const corsOptions ={
-    origin:'*',
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200,
-}
-
-app.use(cors(corsOptions)) // Use this after the variable declaration
-
-const PORT = process.env.PORT || 3030;
-
 app.use('/api', mainRoute);
 
-app.listen(PORT, function (e) {
-    console.log('server started');
-});
+const PORT = 3000;
+
+app.listen(PORT);
+
+// const cors=require("cors");
+// const corsOptions ={
+//     origin:'*',
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200,
+// }
+//
+// app.use(cors(corsOptions)) // Use this after the variable declaration
+//
+// const PORT = process.env.PORT || 3030;
+//
+// app.use('/api', mainRoute);
+//
+// app.listen(PORT, function (e) {
+//     console.log('server started');
+// });
 
 // !!
 // Зробити запити на 3 різних валюти.

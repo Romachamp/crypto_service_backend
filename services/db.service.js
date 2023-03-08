@@ -11,7 +11,6 @@ class DbService {
                 throw error;
             }
         });
-        await connection.close();
     }
 
     async isDataExists(data, collection) {
@@ -19,7 +18,6 @@ class DbService {
         const db = connection.db('CryptoProject');
         const findData = {mail: data};
         const result = await db.collection(collection).find(findData).toArray();
-        await connection.close();
         return result.length >= 1;
     }
 
@@ -30,7 +28,6 @@ class DbService {
             mail: data
         }
         const result = await db.collection('Users').find(findData).toArray();
-        await connection.close();
         return result.length >= 1;
     }
 
@@ -38,7 +35,6 @@ class DbService {
         const connection = await mongoDB.connect(url);
         const db = connection.db('CryptoProject');
         const result = await db.collection(collection).find().toArray();
-        await connection.close();
         let arr = [];
         for (let i = 0; i < result.length; i++) {
             arr.push(result[i].mail);
@@ -55,7 +51,6 @@ class DbService {
                 throw err;
             }
         });
-        await connection.close();
     }
 
     async getLastData(collection) {
@@ -65,7 +60,6 @@ class DbService {
 
         let record = await db.collection(collection).find({}).sort({_id: -1}).limit(1);
 
-        await connection.close();
 
         let returnData;
 
