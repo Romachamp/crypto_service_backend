@@ -7,7 +7,7 @@ class LoginService {
             mail: mail,
             password: password
         }
-        if (await dbService.isUserExists(user) === false) {
+        if (await dbService.isUserExists(user) === true) {
             return 'You have login';
         } else {
             return 'We do not have such a user';
