@@ -13,6 +13,8 @@ class DbService {
         });
     }
 
+
+
     async isDataExists(data, collection) {
         const connection = await mongoDB.connect(url);
         const db = connection.db('CryptoProject');
