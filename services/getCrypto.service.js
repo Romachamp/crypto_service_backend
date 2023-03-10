@@ -27,11 +27,11 @@ class GetCryptoService {
 
 
 
-        const MILLIS_IN_MINUTE = 5000;
-        if (this.cryptoIsCached === true) {
-            const response = await dbService.getLastData(this.COLLECTION);
-            result = response.mail;
-        } else {
+        // const MILLIS_IN_MINUTE = 5000;
+        // if (this.cryptoIsCached === true) {
+        //     const response = await dbService.getLastData(this.COLLECTION);
+        //     result = response.mail;
+        // } else {
             try {
                 const requestCoinPair = binanceList.get(fromCurrency) + binanceList.get(toCurrency);
                 console.log('From ' + fromCurrency);
@@ -59,19 +59,21 @@ class GetCryptoService {
                 }
             }
 
+            return result;
 
-            await dbService.saveData(this.COLLECTION, result);
-            this.cryptoIsCached = true;
 
-            setTimeout(()=> {
-                this.cryptoIsCached = false;
-            },20 * MILLIS_IN_MINUTE);
+            // await dbService.saveData(this.COLLECTION, result);
+            // this.cryptoIsCached = true;
+            //
+            // setTimeout(()=> {
+            //     this.cryptoIsCached = false;
+            // },20 * MILLIS_IN_MINUTE);
         }
 
 
 
-        return result;
-    }
+
+    // }
 }
 
 module.exports = new GetCryptoService();
